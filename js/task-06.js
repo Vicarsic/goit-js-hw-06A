@@ -1,10 +1,11 @@
-const inputValidation = document.querySelector("#validation-input");
-const numOfCharactersInput = parseInt(inputValidation.dataset.length);
+const inputEl = document.querySelector("#validation-input");
 
-inputValidation.addEventListener("blur", (event) => {
-  if (event.currentTarget.value.length > numOfCharactersInput) {
-    inputValidation.classList.add("invalid");
-  } else {
-    inputValidation.classList.add("valid");
+inputEl.addEventListener("blur", inputBlurHandler);
+function inputBlurHandler(evt) {
+  inputEl.classList.add("invalid");
+  inputEl.classList.remove("valid");
+  if (evt.currentTarget.value.length === +inputEl.dataset.length) {
+    inputEl.classList.add("valid");
+    inputEl.classList.remove("invalid");
   }
-});
+}

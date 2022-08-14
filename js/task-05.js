@@ -1,10 +1,9 @@
-const inputName = document.querySelector("#name-input");
-const outputName = document.querySelector("name-output");
+const input = document.querySelector("#name-input");
+const output = document.querySelector("#name-output");
 
-console.log(inputName);
-console.log(outputName);
+input.addEventListener("input", onInputRangeChange);
 
-inputName.addEventListener("input", (event) => {
-  outputName.textContent = event.currentTarget.value;
-  if (inputName.value === "") outputName.textContent = `Anonymus`;
-});
+function onInputRangeChange(evt) {
+  evt.currentTarget.value !== ""
+    ? (output.innerHTML = evt.currentTarget.value)
+    : (output.textContent = "Anonymous");

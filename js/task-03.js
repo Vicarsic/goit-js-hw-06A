@@ -13,12 +13,12 @@ const images = [
   },
 ];
 
-const onLinkToImages = document.querySelector("ul.gallery");
+onst addImgMarkup = ({ url, alt }) => {
+  return `<img class="gallery__img"
+     src=${url}
+     alt=${alt}>`;
+};
 
-images.forEach((image) => {
-  onLinkToImages.insertAdjacentHTML(
-    "afterbegin",
-    `<li class "item"><img src = "${image.url}" alt = "${image.alt}" width = "270" /></li>`
-  );
-});
-onLinkToImages.getElementsByClassName.display = `flex`;
+const galleryEl = document.querySelector(".gallery");
+const addImg = images.map(addImgMarkup).join("");
+galleryEl.insertAdjacentHTML("beforeend", addImg);
